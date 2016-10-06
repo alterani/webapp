@@ -537,7 +537,7 @@ materialAdmin
             //------------------------------
             // BREADCRUMB DEMO
             //------------------------------
-            .state ('breadcrumb-demo', {
+            .state ('   ', {
                 url: '/breadcrumb-demo',
                 templateUrl: 'views/breadcrumb-demo.html'
             })

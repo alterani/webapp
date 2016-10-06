@@ -3,10 +3,16 @@ materialAdmin
     // Base controller for common functions
     // =========================================================================
 
-    .controller('materialadminCtrl', function($timeout, $state, $scope, growlService){
+    .controller('materialadminCtrl', function($timeout, $state, $rootScope, $scope, growlService){
         //Welcome Message
-        growlService.growl('Welcome back Mallinda!', 'inverse')
+        growlService.growl('Benvenuto in Catering Milano!', 'inverse')
+
+        //Setta e carica il pluginn show & hide tutte le viste
+        localStorage.setItem('VediTutteLeviste', "no");
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         
+
+    
         
         // Detact Mobile Browser
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -24,6 +30,13 @@ materialAdmin
         
         // For Mainmenu Active Class
         this.$state = $state;    
+
+        //Funzione di sistema
+        function checkVisualizza(){
+
+            return ('si' == localStorage.getItem('VediTutteLeviste'));
+            
+        }
         
         //Close sidebar on click
         this.sidebarStat = function(event) {
@@ -73,8 +86,9 @@ materialAdmin
     // =========================================================================
     // Header
     // =========================================================================
-    .controller('headerCtrl', function($timeout, messageService){
+    .controller('headerCtrl', function($timeout, $scope, $rootScope, messageService){
 
+        $rootScope.checkSioNo = checkVisualizza();
 
         // Top Search
         this.openSearch = function(){
@@ -140,7 +154,29 @@ materialAdmin
             });
             
         }
-        
+
+        this.VisualizzaPagineTemplate = function() {
+            
+            localStorage.setItem('VediTutteLeviste', "si");
+            $rootScope.checkSioNo = checkVisualizza();
+            
+                       
+        }
+
+        this.nascondiPagineTemplate = function() {
+            
+            localStorage.setItem('VediTutteLeviste', "no");
+            $rootScope.checkSioNo = checkVisualizza();
+            
+                       
+        }
+
+        function checkVisualizza(){
+
+            return ('si' == localStorage.getItem('VediTutteLeviste'));
+            
+        }
+
         //Fullscreen View
         this.fullScreen = function() {
             //Launch
@@ -356,6 +392,8 @@ materialAdmin
     //Add event Controller (Modal Instance)
     .controller('addeventCtrl', function($scope, $modalInstance, calendarData){
         
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
+
         //Calendar Event Data
         $scope.calendarData = {
             eventStartDate: calendarData[0],

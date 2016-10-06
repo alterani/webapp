@@ -5,6 +5,7 @@ materialAdmin
     //====================================
 
     .controller('AlertDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.alerts = [
             { type: 'info', msg: "Well done! You successfully read this important alert message." },
             { type: 'success', msg: "Well done! You successfully read this important alert message." },
@@ -23,6 +24,7 @@ materialAdmin
     //====================================
 
     .controller('ButtonsDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.singleModel = 1;
 
         $scope.radioModel = 'Middle';
@@ -40,6 +42,7 @@ materialAdmin
     //====================================
 
     .controller('CarouselDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.myInterval = 0;
         $scope.slides = [
             {
@@ -65,6 +68,7 @@ materialAdmin
     //====================================
 
     .controller('CollapseDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.isCollapsed = false;
     })
 
@@ -74,6 +78,7 @@ materialAdmin
     //====================================
 
     .controller('UibDropdownDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.items = [
             { name: 'The first choice!', icon: 'home' },
             { name: 'And another choice', icon: 'account' },
@@ -87,6 +92,7 @@ materialAdmin
     // MODAL
     //====================================
     .controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
 
         $scope.modalContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales orci ante, sed ornare eros vestibulum ut. Ut accumsan vitae eros sit amet tristique. Nullam scelerisque nunc enim, non dignissim nibh faucibus ullamcorper. Fusce pulvinar libero vel ligula iaculis ullamcorper. Integer dapibus, mi ac tempor varius, purus nibh mattis erat, vitae porta nunc nisi non tellus. Vivamus mollis ante non massa egestas fringilla. Vestibulum egestas consectetur nunc at ultricies. Morbi quis consectetur nunc.';
     
@@ -134,7 +140,7 @@ materialAdmin
     // It is not the same as the $modal service used above.
 
     .controller('ModalInstanceCtrl', function ($scope, $modalInstance, content) {
-
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
           $scope.modalContent = content;
 
           $scope.ok = function () {
@@ -152,6 +158,7 @@ materialAdmin
     //====================================
 
     .controller('PaginationDemoCtrl', function ($scope, $log) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.totalItems = 64;
         $scope.currentPage = 4;
 
@@ -170,6 +177,7 @@ materialAdmin
     //====================================
 
     .controller('PopoverDemoCtrl', function ($scope) {
+       $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.dynamicPopover = {
             templateUrl: 'myPopoverTemplate.html',
         };
@@ -180,6 +188,7 @@ materialAdmin
     //====================================
 
     .controller('ProgressDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.max = 200;
 
         $scope.random = function() {
@@ -229,6 +238,7 @@ materialAdmin
     //====================================
 
     .controller('TabsDemoCtrl', function ($scope, $window) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.tabs = [
             {
                 title:'Home',
@@ -256,6 +266,7 @@ materialAdmin
     //====================================
 
     .controller('TooltipDemoCtrl', function ($scope, $sce) {
+          $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
           $scope.htmlTooltip = $sce.trustAsHtml('I\'ve been made <b>bold</b>!');
     })
 
@@ -264,6 +275,7 @@ materialAdmin
     // DATE PICKER
     //====================================
     .controller('DatepickerDemoCtrl', function ($scope) {
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.today = function() {
             $scope.dt = new Date();
         };
@@ -297,7 +309,7 @@ materialAdmin
     // TYPEAHEAD
     //====================================
     .controller('TypeaheadCtrl', function($scope, $http) {
-
+        $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         $scope.selected = undefined;
         $scope.states = [
             'Alabama', 

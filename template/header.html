@@ -8,7 +8,7 @@
     </li>
 
     <li class="logo hidden-xs">
-        <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)">Material Admin</a>
+        <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)">Catering Milano Srl</a>
     </li>
 
     <li class="pull-right">
@@ -21,10 +21,10 @@
                 </div>
             </li>
 
-            <li id="top-search">
+            <li ng-show="checkSioNo" id="top-search">
                 <a href="" data-ng-click="hctrl.openSearch()"><i class="tm-icon zmdi zmdi-search"></i></a>
             </li>
-            <li class="dropdown" uib-dropdown>
+            <li ng-show="checkSioNo" class="dropdown" uib-dropdown>
                 <a uib-dropdown-toggle href="">
                     <i class="tm-icon zmdi zmdi-email"></i>
                     <i class="tmn-counts">6</i>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </li>
-            <li class="dropdown" uib-dropdown>
+            <li ng-show="checkSioNo" class="dropdown" uib-dropdown>
                 <a uib-dropdown-toggle href="">
                     <i class="tm-icon zmdi zmdi-notifications"></i>
                     <i class="tmn-counts">9</i>
@@ -93,7 +93,7 @@
 
                 </div>
             </li>
-            <li class="dropdown hidden-xs" uib-dropdown>
+            <li ng-show="checkSioNo" class="dropdown hidden-xs" uib-dropdown>
                 <a uib-dropdown-toggle href="">
                     <i class="tm-icon zmdi zmdi-view-list-alt"></i>
                     <i class="tmn-counts">2</i>
@@ -169,18 +169,26 @@
                     <li class="hidden-xs">
                         <a data-ng-click="hctrl.fullScreen()" href=""><i class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a>
                     </li>
+                  
+                
+                    <li ng-hide="checkSioNo">
+                        <a data-ng-click="hctrl.VisualizzaPagineTemplate()" href=""><i class="zmdi zmdi-grid"></i> Visualizza Pagine template</a>
+                    </li>
+                    <li ng-show="checkSioNo">
+                        <a data-ng-click="hctrl.nascondiPagineTemplate()" href=""><i class="zmdi zmdi-grid-off"></i> Nascondi Pagine template</a>
+                    </li>
                     <li>
                         <a data-ng-click="hctrl.clearLocalStorage()" href=""><i class="zmdi zmdi-delete"></i> Clear Local Storage</a>
                     </li>
-                    <li>
+                    <li ng-show="checkSioNo">
                         <a href=""><i class="zmdi zmdi-face"></i> Privacy Settings</a>
                     </li>
-                    <li>
+                    <li ng-show="checkSioNo">
                         <a href=""><i class="zmdi zmdi-settings"></i> Other Settings</a>
                     </li>
                 </ul>
             </li>
-            <li class="hidden-xs" data-target="chat" data-toggle-sidebar data-model-right="mactrl.sidebarToggle.right" data-ng-class="{ 'open': mactrl.sidebarToggle.right === true }">
+            <li ng-show="checkSioNo" class="hidden-xs" data-target="chat" data-toggle-sidebar data-model-right="mactrl.sidebarToggle.right" data-ng-class="{ 'open': mactrl.sidebarToggle.right === true }">
                 <a href=""><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
             </li>
         </ul>
