@@ -81,6 +81,18 @@ materialAdmin
             })
         }
     }])
+
+    .service('ServiceFiere', [ '$http',function($http){
+        this.elencofiere = prendifiere();
+
+        function prendifiere () {
+           $http.get('api/fiere').then(function(response){
+            elencofiere = response.data;
+            console.log(elencofiere);
+             return elencofiere;
+            }); 
+        }
+    }])
     
     // =========================================================================
     // Data Table

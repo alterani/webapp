@@ -3,7 +3,7 @@ materialAdmin
     // Base controller for common functions
     // =========================================================================
 
-    .controller('materialadminCtrl', function($timeout, $state, $rootScope, $scope, growlService){
+    .controller('materialadminCtrl', function($timeout, $state, $http, $rootScope, $scope, growlService){
         //Welcome Message
         growlService.growl('Benvenuto in Catering Milano!', 'inverse')
 
@@ -11,7 +11,39 @@ materialAdmin
         localStorage.setItem('VediTutteLeviste', "no");
         $scope.VediTutteLeviste = localStorage.getItem('VediTutteLeviste');
         
+        leggiTotClienti();
+        leggiTotFax();
+        leggiTotmail();
+        leggiTotTelefono();
 
+        function leggiTotTelefono(){
+            $http.get('api/contatel').then(function(response){
+                $scope.totaleTel = response.data; 
+                return response.data;
+            });
+        }
+
+        function leggiTotmail(){
+            $http.get('api/contamail').then(function(response){
+                $scope.totaleMail = response.data; 
+                return response.data;
+            });
+        }
+
+        function leggiTotFax(){
+            $http.get('api/contafax').then(function(response){
+                $scope.totaleFax = response.data; 
+                return response.data;
+            });
+        }
+
+
+        function leggiTotClienti(){
+            $http.get('api/contatutto').then(function(response){
+                $scope.totaleClienti = response.data; 
+                return response.data;
+            });
+        }
     
         
         // Detact Mobile Browser

@@ -10,6 +10,12 @@
   },
   "dependencies": {
     "angular-animate": "^1.4.3",
+    "assert": "^1.4.1",
+    "body-parser": "^1.15.2",
+    "fs-extra": "^0.30.0",
+    "json2csv": "^3.7.0",
+    "mongodg": "^0.1.0",
+    "mongoose": "^4.6.3",
     "ng-if-bootstrap-grid": "^0.1.0"
   }
 }

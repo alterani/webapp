@@ -1,0 +1,8 @@
+{
+  "dbhost": "<host db>",
+  "dbport": "<porta db>",
+  "dbname": "<nome db>",
+  "collectionname": "<nome tabella>",
+  "userdb": "<your username>",
+  "passworddb": "<your pwd for database>"
+}

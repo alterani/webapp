@@ -9,20 +9,20 @@
 
         <div class="container">
             <div class="block-header">
-                <h2>Dashboard</h2>
+                <h2>LEAD FIERA MILANO</h2>
 
                 <ul class="actions">
-                    <li>
+                    <li ng-show="checkSioNo">
                         <a href="">
                             <i class="zmdi zmdi-trending-up"></i>
                         </a>
                     </li>
-                    <li>
+                    <li ng-show="checkSioNo">
                         <a href="">
                             <i class="zmdi zmdi-check-all"></i>
                         </a>
                     </li>
-                    <li class="dropdown" uib-dropdown>
+                    <li ng-show="checkSioNo" class="dropdown" uib-dropdown>
                         <a href="" uib-dropdown-toggle>
                             <i class="zmdi zmdi-more-vert"></i>
                         </a>
@@ -43,7 +43,110 @@
 
             </div>
 
-            <div class="card">
+            <div class="mini-charts">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="mini-charts-item bgm-cyan">
+                            <div class="clearfix">
+                                <div class="chart stats-bar" data-sparkline-bar></div>
+                                <div class="count">
+                                    <small>Schede Clienti</small>
+                                    <h2>{{totaleClienti}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="mini-charts-item bgm-lightgreen">
+                            <div class="clearfix">
+                                <div class="chart stats-bar-2" data-sparkline-bar></div>
+                                <div class="count">
+                                    <small>Numeri Fax</small>
+                                    <h2>{{totaleFax}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="mini-charts-item bgm-orange">
+                            <div class="clearfix">
+                                <div class="chart stats-line" data-sparkline-line></div>
+                                <div class="count">
+                                    <small>Mail In Archivio</small>
+                                    <h2>{{totaleMail}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="mini-charts-item bgm-bluegray">
+                            <div class="clearfix">
+                                <div class="chart stats-line-2" data-sparkline-line></div>
+                                <div class="count">
+                                    <small>Numeri di Telefono</small>
+                                    <h2>{{totaleTel}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="card" data-ng-controller="tableCtrl as tctrl">
+                <div class="card-header">
+                    <h2>ELENCO FIERE <small>Digita nella casella di testo per filtrare i risultati.</small></h2>
+                </div>
+                        
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table ng-table="tctrl.tableFilterEnrico" class="table table-striped table-vmiddle" show-filter="true">
+                            <tr ng-repeat="w in $data">
+                               
+                                <td data-title="'CERCA FIERA'" filter="{ '_id': 'text' }">
+                                    {{ w._id }}
+                                    
+                                    <span ng-click="downloadCsv('mail', w._id )" data-swal-success-download >
+                                        <i class="tmn-counts tm_icon_count_enrico pull-right">{{ w.TotEmail }}  </i>
+                                        <i Tooltip="Download Mail" class="tm-icon zmdi zmdi-email tm-icon_enrico Rosso pull-right"></i>
+                                    </span>
+                                    <span ng-click="downloadCsv('telefono', w._id )" data-swal-success-download>    
+                                        <i class="tmn-counts tm_icon_count_enrico pull-right">{{ w.TotTelefono }}  </i>
+                                        <i Tooltip="Download numeri telefono" class="tm-icon zmdi zmdi-phone tm-icon_enrico Verde pull-right"></i>
+                                    </span>
+                                    <span ng-click="downloadCsv('fax', w._id )" data-swal-success-download>
+                                        <i  class="tmn-counts tm_icon_count_enrico pull-right">{{ w.TotFax }}  </i>
+                                        <i Tooltip="Download numeri fax" class="tm-icon zmdi zmdi-file tm-icon_enrico Blu pull-right"></i>
+                                    </span>
+                                </td >
+                                
+                                
+                                <!-- 
+                                <td data-title="'Tot Schede'" filter="{ 'TotSchedeCliente': 'text' }">
+                                    {{ w.TotSchedeCliente }}
+                                </td>
+                                <td data-title="'Tot Email'" filter="{ 'TotEmail': 'text' }">
+                                    {{ w.TotEmail }}
+                                </td>
+                                <td data-title="'Tot Fax'" filter="{ 'TotFax': 'text' }">
+                                    {{ w.TotFax }}
+                                </td>
+                                <td data-title="'Tot Telefono'" filter="{ 'TotTelefono': 'text' }">
+                                    {{ w.TotTelefono }}
+                                </td>
+                                -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <div ng-show="checkSioNo" class="card">
                 <div class="card-header">
                     <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
 
@@ -85,7 +188,7 @@
                 </div>
             </div>
 
-            <div class="mini-charts">
+            <div ng-show="checkSioNo" class="mini-charts">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-cyan">
@@ -138,7 +241,7 @@
             </div>
 
 
-            <div class="dash-widgets">
+            <div ng-show="checkSioNo" class="dash-widgets">
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div id="site-visits" class="dash-widget-item bgm-teal">
@@ -259,7 +362,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div ng-show="checkSioNo" class="row">
                 <div class="col-sm-6">
                     <!-- Recent Items -->
                     <div class="card" data-ng-controller="recentitemCtrl as rictrl">

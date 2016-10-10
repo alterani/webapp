@@ -78,6 +78,19 @@ materialAdmin
         }
     })
 
+    //Success Message download ok
+    .directive('swalSuccessDownload', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal("Elenco Scaricato!", "Il download è stato effettuato correttamente. Controlla nella cartella download e troverai il file csv. \n \n Enrico Alterani \n e.alterani@gmail.com ", "success")
+
+                });
+            }
+        }
+    })
+
     //Warning Message
     .directive('swalWarning', function(){
         return {
