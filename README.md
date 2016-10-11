@@ -9,5 +9,7 @@ grunt watch.
 - Avviare il database
 - Configurare i parametri nel file parametri.json (vedi esempio_parametri.json)
 - eseguire il comando <code>node server</code>
+- Per eseguire in background <code>nohup node server &</code>
+
 
 
