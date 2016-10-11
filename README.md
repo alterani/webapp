@@ -11,5 +11,10 @@ grunt watch.
 - eseguire il comando <code>node server</code>
 - Per eseguire in background <code>nohup node server &</code>
 
+## PM2 NPM
+Si tratta di un tool che permette di eseguire applicazioni node come servizi.
+Offre anche funzionalità di monitoring.
+Vedi link https://hackerstribe.com/2016/node-js-gestione-dei-processi-con-pm2/
+
 
 
